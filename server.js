@@ -86,6 +86,14 @@ function sendEmail(fullname, email, message) {
 
 
 // routes 
+
+// for showing default message when backend is deployed
+app.get('/', async (req, res) => {
+    res.status(200).json({message: "Deployed successfully!"});
+})
+
+
+// this api is used to store user details
 app.post('/user', async (req, res) => {
     try {
         const user = new User(req.body);
